@@ -4,7 +4,7 @@ def read_input(inp):
 	for i in range(len(l)):
 		l[i] = l[i].strip('\n')
 	return l
-#
+
 l = read_input('day.txt')
 
 '''
