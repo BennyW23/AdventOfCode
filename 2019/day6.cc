@@ -54,6 +54,15 @@ int set_depths_and_sum(Mass * root) {
 	return sum;
 }
 
+void free_the_masses(Mass* root) {
+	if (root == NULL)
+		return;
+	for (size_t i = 0; i < root->children.size(); i++) {
+		free_the_masses(root->children.at(i));
+	}
+	delete root;
+}
+
 int main() {
 	std::vector<std::string> input = read_input("day6.txt");
 	//print(input);
@@ -138,5 +147,5 @@ int main() {
 	}
 	//std::cout << std::endl;
 	std::cout << abs((you->depth - 1) - temp->depth) + abs(temp->depth - (san->depth - 1)) << std::endl;
-
+	free_the_masses(root);
 }
