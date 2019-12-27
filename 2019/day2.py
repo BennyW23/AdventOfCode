@@ -1,3 +1,4 @@
+#input parsing
 def read_input(inp):
 	f = open (inp, 'r')
 	l = f.readlines()
@@ -5,15 +6,19 @@ def read_input(inp):
 		l[i] = l[i].strip('\n')
 	return l
 
+#reads the instruction at given index of the array
 def read_instruction(index, arr):
+	# opcode 1: add
 	if arr[index] == 1:
 		arr[arr[index + 3]] = arr[arr[index + 1]] + arr[arr[index + 2]]
+	#opcode 2: multiply
 	elif arr[index] == 2:
 		arr[arr[index + 3]] = arr[arr[index + 1]] * arr[arr[index + 2]]
+	#opcode 99: quit
 	elif arr[index] == 99:
 		return 0
 	else:
-		return 0
+		return -1
 	return 1
 
 #setup
