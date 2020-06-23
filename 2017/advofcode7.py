@@ -1,4 +1,4 @@
-inp = '''yvpwz (50)
+inp = """yvpwz (50)
 vfosh (261) -> aziwd, tubze, dhjrv
 xtvawvt (19)
 nspsk (24)
@@ -1190,9 +1190,9 @@ cgwnn (384) -> nioeugr, gjzddf
 mwzaxaj (59) -> csybv, febjzqn, bltmlm, dfyyjta, ljaktj, vmyda, vbcfe
 yquqk (83) -> wvjjht, edyqn, frleu, puxaz
 jaoiiae (81)
-pucsbv (39)'''
+pucsbv (39)"""
 
-'''pbga (66)
+"""pbga (66)
 xhth (57)
 ebii (61)
 havc (66)
@@ -1204,37 +1204,38 @@ tknk (41) -> ugml, padx, fwft
 jptl (61)
 ugml (68) -> gyxo, ebii, jptl
 gyxo (61)
-cntj (57)'''
+cntj (57)"""
+
 
 def balance(key):
-	print key
-	try:
-		values = holds[key]
-		print values
-	except KeyError:
-		return weights[key]
-	s = []
-	for value in range(len(values)):
-		s.append(balance(values[value]))
-		print s
-	
-	balanced = True
-	for num in range(1,len(values)):
-		if s[0] != s[num]:
-			balanced = False
-			print 'not balanced!'
-			print s
-			print
-			if num != 1:
-				if s[0] == s[1]:
-					print 'balancing'
-					balance(values[num])
-				else:
-					print 'balancing'
-					balance(values[0])
-	
-	if balanced == True:
-		return s[0] * len(s) + weights[key]
+    print key
+    try:
+        values = holds[key]
+        print values
+    except KeyError:
+        return weights[key]
+    s = []
+    for value in range(len(values)):
+        s.append(balance(values[value]))
+        print s
+
+    balanced = True
+    for num in range(1, len(values)):
+        if s[0] != s[num]:
+            balanced = False
+            print "not balanced!"
+            print s
+            print
+            if num != 1:
+                if s[0] == s[1]:
+                    print "balancing"
+                    balance(values[num])
+                else:
+                    print "balancing"
+                    balance(values[0])
+
+    if balanced == True:
+        return s[0] * len(s) + weights[key]
 
 
 weights = {}
@@ -1242,44 +1243,44 @@ holds = {}
 ind = 0
 y = 0
 
-lines = inp.split('\n')
+lines = inp.split("\n")
 for x in range(len(lines)):
-	lines[x] = lines[x].split()
+    lines[x] = lines[x].split()
 
 
 for line in lines:
-	try:
-		size = 1
-		while True:
-			weights[line[0]] = int(line[1][1:1+size])
-			size += 1
-	except ValueError:
-		pass
-	temp = []
-	try:
-		if line[2]:
-			ind = 3
-		while line[ind]:
-			temp.append(line[ind])
-			ind += 1
-	except IndexError:
-		if temp:
-			#print temp
-			for word in range(len(temp)):
-				for let in range(len(temp[word])):
-					if temp[word][let] == ',':
-						temp[word] = temp[word][:let] +  temp[word][let+1:] 
-			holds[line[0]] = tuple(temp)
+    try:
+        size = 1
+        while True:
+            weights[line[0]] = int(line[1][1 : 1 + size])
+            size += 1
+    except ValueError:
+        pass
+    temp = []
+    try:
+        if line[2]:
+            ind = 3
+        while line[ind]:
+            temp.append(line[ind])
+            ind += 1
+    except IndexError:
+        if temp:
+            # print temp
+            for word in range(len(temp)):
+                for let in range(len(temp[word])):
+                    if temp[word][let] == ",":
+                        temp[word] = temp[word][:let] + temp[word][let + 1 :]
+            holds[line[0]] = tuple(temp)
 
 bottom = lines[0][0]
 isbottom = False
 while isbottom != True:
-	isbottom = True
-	for key,value in holds.iteritems():
-		#print bottom
-		#print value
-		if bottom in value:
-			isbottom = False
-			bottom = key
+    isbottom = True
+    for key, value in holds.iteritems():
+        # print bottom
+        # print value
+        if bottom in value:
+            isbottom = False
+            bottom = key
 
 balance(bottom)

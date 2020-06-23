@@ -1,4 +1,4 @@
-inp = '''  883  357  185
+inp = """  883  357  185
   572  189  424
   842  206  272
    55  656   94
@@ -1899,15 +1899,15 @@ inp = '''  883  357  185
   427  323  608
   613  402  520
   401  211  328
-  725  312  215'''
-'''101 301 501
+  725  312  215"""
+"""101 301 501
 102 302 502
 103 303 503
 201 401 601
 202 402 602
-203 403 603'''
+203 403 603"""
 
-'''
+"""
 #part 1
 possible = 0
 triangles = inp.split('\n')
@@ -1927,31 +1927,31 @@ for line in triangles:
 		print line
 
 print possible
-'''
+"""
 
 possible = 0
-triangles = inp.split('\n')
+triangles = inp.split("\n")
 for i in range(len(triangles)):
-	triangles[i] = triangles[i].split()
-	for j in range(len(triangles[i])):
-		triangles[i][j] = int(triangles[i][j])
+    triangles[i] = triangles[i].split()
+    for j in range(len(triangles[i])):
+        triangles[i][j] = int(triangles[i][j])
 
-for num in range(0,len(triangles),3):
-	print '\n'
-	for col in range(3):
-		largest = 0
-		s = 0
-		for row in range(1,3):
-			if triangles[num + row][col] > triangles[num + largest][col]:
-				largest = row
-		
-		for i in range(3):
-			if i != largest:
-				s += triangles[num + i][col]
-		if s > triangles[num + largest][col]:
-			possible += 1
-			for row in range(3):
-				print triangles[num + row][col], 
+for num in range(0, len(triangles), 3):
+    print "\n"
+    for col in range(3):
+        largest = 0
+        s = 0
+        for row in range(1, 3):
+            if triangles[num + row][col] > triangles[num + largest][col]:
+                largest = row
 
-print '\n\n'
+        for i in range(3):
+            if i != largest:
+                s += triangles[num + i][col]
+        if s > triangles[num + largest][col]:
+            possible += 1
+            for row in range(3):
+                print triangles[num + row][col],
+
+print "\n\n"
 print possible

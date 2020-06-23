@@ -1,4 +1,4 @@
-inp = '''set i 31
+inp = """set i 31
 set a 1
 mul p 17
 jgz p p
@@ -39,10 +39,10 @@ jgz i -11
 snd a
 jgz f -16
 jgz a -19
-'''
+"""
 
 
-'''set a 1
+"""set a 1
 add a 2
 mul a a
 mod a 5
@@ -51,9 +51,9 @@ set a 0
 rcv a
 jgz a -1
 set a 1
-jgz a -2'''
+jgz a -2"""
 
-'''#part 1
+"""#part 1
 lines = inp.split('\n')
 registers = {}
 played = 0
@@ -108,68 +108,71 @@ while index < len(lines):
 			index += rem - 1 
 	registers[regindex] = register
 	index += 1
-'''
+"""
+
+
 def swap(cur):
-	if cur == 0:
-		cur = 1
-	elif cur == 1:
-		cur = 0
-	return cur
+    if cur == 0:
+        cur = 1
+    elif cur == 1:
+        cur = 0
+    return cur
 
-#part 2
-lines = inp.split('\n')
-registers = [{},{}]
-sent = [[],[]]
 
-cur = 0 
-index = [0,0]
+# part 2
+lines = inp.split("\n")
+registers = [{}, {}]
+sent = [[], []]
+
+cur = 0
+index = [0, 0]
 while index[cur] < len(lines):
-	line = lines[index[cur]]
-	if line == '':
-		continue
-	command = line[:3]
-	regindex = line[4]
-	try:
-		register = registers[cur][regindex]
-	except KeyError:
-		register = 0
-	
-	rem = line[6:].strip()
-	if rem == '':
-		pass
-	elif rem.isalpha() == True:
-		try:
-			rem = registers[cur][rem]
-		except KeyError:
-			registers[cur][rem] = 0 
-			rem = 0
-	else:
-		rem = int(rem)
+    line = lines[index[cur]]
+    if line == "":
+        continue
+    command = line[:3]
+    regindex = line[4]
+    try:
+        register = registers[cur][regindex]
+    except KeyError:
+        register = 0
 
-	if command == 'snd':
-		sent[cur].append(register)
-		#change this for pt2
+    rem = line[6:].strip()
+    if rem == "":
+        pass
+    elif rem.isalpha() == True:
+        try:
+            rem = registers[cur][rem]
+        except KeyError:
+            registers[cur][rem] = 0
+            rem = 0
+    else:
+        rem = int(rem)
 
-	elif command == 'set':
-		register = rem
+    if command == "snd":
+        sent[cur].append(register)
+        # change this for pt2
 
-	elif command == 'add':
-		register += rem
-	
-	elif command == 'mul':
-		register *= rem
-		
-	elif command == 'mod':
-		register = register % rem
-		
-	elif command == 'rcv':
-		# code this for pt2 
-		if register != 0:
-			print played
-			break
+    elif command == "set":
+        register = rem
 
-	elif command == 'jgz':
-		if register > 0:
-			index[cur] += rem - 1 
-	registers[cur][regindex] = register
-	index[cur] += 1
+    elif command == "add":
+        register += rem
+
+    elif command == "mul":
+        register *= rem
+
+    elif command == "mod":
+        register = register % rem
+
+    elif command == "rcv":
+        # code this for pt2
+        if register != 0:
+            print played
+            break
+
+    elif command == "jgz":
+        if register > 0:
+            index[cur] += rem - 1
+    registers[cur][regindex] = register
+    index[cur] += 1

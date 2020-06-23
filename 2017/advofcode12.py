@@ -1,4 +1,4 @@
-inp = '''0 <-> 780, 1330
+inp = """0 <-> 780, 1330
 1 <-> 264, 595, 1439
 2 <-> 296, 531, 1440
 3 <-> 207, 235, 1038
@@ -1997,61 +1997,63 @@ inp = '''0 <-> 780, 1330
 1996 <-> 1996
 1997 <-> 14, 1093
 1998 <-> 1002
-1999 <-> 708'''
+1999 <-> 708"""
 
-'''0 <-> 2
+"""0 <-> 2
 1 <-> 1
 2 <-> 0, 3, 4
 3 <-> 2, 4
 4 <-> 2, 3, 6
 5 <-> 6
 6 <-> 4, 5
-'''
+"""
 
-def is_connected(string, connected = []):
-	if string in connected:
-		return []
-	connected.append(string)
-	for value in links[string]:
-		if value not in connected:
-			connected = is_connected(value, connected)
-	return connected
 
-lines = inp.split('\n')
+def is_connected(string, connected=[]):
+    if string in connected:
+        return []
+    connected.append(string)
+    for value in links[string]:
+        if value not in connected:
+            connected = is_connected(value, connected)
+    return connected
+
+
+lines = inp.split("\n")
 links = {}
 groups = []
 
-#checking inputs
+# checking inputs
 for ind in range(len(lines) - 1, -1, -1):
-	if lines[ind] == '':
-		lines.pop(ind)
-		continue
-	lines[ind] = lines[ind].split()
+    if lines[ind] == "":
+        lines.pop(ind)
+        continue
+    lines[ind] = lines[ind].split()
 
-	for word in range(len(lines[ind])):
-		for let in range(len(lines[ind][word])):
-			if lines[ind][word][let] == ',':
-				lines[ind][word] = lines[ind][word][:let] + lines[ind][word][let+1:]
+    for word in range(len(lines[ind])):
+        for let in range(len(lines[ind][word])):
+            if lines[ind][word][let] == ",":
+                lines[ind][word] = lines[ind][word][:let] + lines[ind][word][let + 1 :]
 
 
 for line in lines:
-	links[line[0]] = tuple(line[2:])
+    links[line[0]] = tuple(line[2:])
 
-connected = is_connected('0')
+connected = is_connected("0")
 groups.append(connected)
 print connected
 print len(connected)
-print '\n\n'
+print "\n\n"
 
 
 for line in lines:
-	inside = False
-	for group in groups:
-		if line[0] in group:
-			inside = True
-	if inside == False:
-		connected = is_connected(line[0], [])
-		groups.append(connected)
+    inside = False
+    for group in groups:
+        if line[0] in group:
+            inside = True
+    if inside == False:
+        connected = is_connected(line[0], [])
+        groups.append(connected)
 
 print groups
 print len(groups)

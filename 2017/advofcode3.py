@@ -1,7 +1,5 @@
-
-
 inp = 23
-''' #manual, slow way
+""" #manual, slow way
 dist = 0
 prev = 0
 marker = 1
@@ -28,23 +26,24 @@ while inp != marker and inp != prev:
     prev += 1
     marker -= 1
 print dist
-'''
+"""
 
-for inp in range(1,30):
-    ring = (int((inp - 1) ** 0.5)  + 1 )/ 2
+for inp in range(1, 30):
+    ring = (int((inp - 1) ** 0.5) + 1) / 2
     nearestroot = int((inp ** 0.5) + 0.5)
     nearestoddroot = int((inp ** 0.5) + 1)
     print inp, ring, nearestoddroot
 
-    dist = (nearestroot - 1) * 2 #subtract 1 to account for 1 being the 0th ring, multiply by 2 because manhattan distance
-    #note that the amount of times subtracted as we go through the memory is the same as the amount added afterwards and is the same as the ring
+    dist = (
+        nearestroot - 1
+    ) * 2  # subtract 1 to account for 1 being the 0th ring, multiply by 2 because manhattan distance
+    # note that the amount of times subtracted as we go through the memory is the same as the amount added afterwards and is the same as the ring
     length = ring
-
 
     if inp > nearestroot ** 2:
         continue
 
-    elif inp < nearestroot **2:
+    elif inp < nearestroot ** 2:
         continue
 
     print inp

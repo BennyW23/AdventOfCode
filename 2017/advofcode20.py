@@ -1,4 +1,4 @@
-inp = '''p=<-3770,-455,1749>, v=<-4,-77,53>, a=<11,7,-9>
+inp = """p=<-3770,-455,1749>, v=<-4,-77,53>, a=<11,7,-9>
 p=<1430,195,-903>, v=<-123,60,20>, a=<5,-5,1>
 p=<-2964,-3029,2594>, v=<-8,157,7>, a=<9,-3,-8>
 p=<-6383,-4277,-3529>, v=<29,70,67>, a=<16,7,5>
@@ -997,55 +997,56 @@ p=<-698,1219,2813>, v=<-98,178,401>, a=<7,-12,-25>
 p=<3207,253,-25>, v=<459,36,-2>, a=<-37,-1,-4>
 p=<-1494,-3321,-55>, v=<-207,-471,-7>, a=<11,32,1>
 p=<2641,-2494,-842>, v=<381,-356,-120>, a=<-26,23,7>
-p=<2218,-821,794>, v=<312,-113,114>, a=<-23,9,-7>'''
+p=<2218,-821,794>, v=<312,-113,114>, a=<-23,9,-7>"""
 
-inp = '''p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>
+inp = """p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>
 p=<-4,0,0>, v=< 2,0,0>, a=< 0,0,0>
 p=<-2,0,0>, v=< 1,0,0>, a=< 0,0,0>
-p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>'''
+p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>"""
+
 
 class Particle(object):
-	def __init__(self, line):
-		self.is_collided = False
-		end = line.index('>')
-		self.position = line[3:end].split(',')
-		
-		end = line.index('>', end + 1)
-		temp = line.index('v')
-		self.velocity = line[temp+3:end].split(',')
+    def __init__(self, line):
+        self.is_collided = False
+        end = line.index(">")
+        self.position = line[3:end].split(",")
 
-		temp = line.index('a')
-		self.accel = line[temp+3:-1].split(',')
-	
-		
-		for num in range(3):
-			self.position[num] = int(self.position[num])
-			self.velocity[num] = int(self.velocity[num])
-			self.accel[num] = int(self.accel[num])
-	
-	def display(self):
-		print self.position, self.velocity, self.accel
-	
-	def collide(self):
-		self.is_collided = True
-	
-	def tick(self):
-		for num in range(3):
-			self.velocity[num] += self.accel[num]
-			self.position[num] += self.velocity[num]
-	
-	def collided(self):
-		if self.is_collided == True:
-			return True
-		else:
-			return False
-			
-	def get_pos(self):
-		return self.position
+        end = line.index(">", end + 1)
+        temp = line.index("v")
+        self.velocity = line[temp + 3 : end].split(",")
 
-lines = inp.split('\n')
+        temp = line.index("a")
+        self.accel = line[temp + 3 : -1].split(",")
 
-''' #part 1
+        for num in range(3):
+            self.position[num] = int(self.position[num])
+            self.velocity[num] = int(self.velocity[num])
+            self.accel[num] = int(self.accel[num])
+
+    def display(self):
+        print self.position, self.velocity, self.accel
+
+    def collide(self):
+        self.is_collided = True
+
+    def tick(self):
+        for num in range(3):
+            self.velocity[num] += self.accel[num]
+            self.position[num] += self.velocity[num]
+
+    def collided(self):
+        if self.is_collided == True:
+            return True
+        else:
+            return False
+
+    def get_pos(self):
+        return self.position
+
+
+lines = inp.split("\n")
+
+""" #part 1
 accel = []
 
 for num in range(len(lines)):
@@ -1066,27 +1067,26 @@ for triple in accel:
 		index = accel.index(triple)
 
 print index
-'''
+"""
 particles = []
 
 for line in lines:
-	particles.append(Particle(line))
+    particles.append(Particle(line))
 
 while True:
-	for i in range(len(particles)):
-		if particles[i].collided() == True:
-			continue
-		for j in range(i+1, len(particles)):
-			if particles[j].collided() == True:
-				continue
-			if particles[i].get_pos() == particles[j].get_pos():
-				particles[i].collide()
-				particles[j].collide()
+    for i in range(len(particles)):
+        if particles[i].collided() == True:
+            continue
+        for j in range(i + 1, len(particles)):
+            if particles[j].collided() == True:
+                continue
+            if particles[i].get_pos() == particles[j].get_pos():
+                particles[i].collide()
+                particles[j].collide()
 
-	for index in range(len(particles) - 1, -1, -1):
-		if particles[index].collided() == True:
-			particles.pop(index)
-		particles[index].tick()
-	
-	print len(particles)
+    for index in range(len(particles) - 1, -1, -1):
+        if particles[index].collided() == True:
+            particles.pop(index)
+        particles[index].tick()
 
+    print len(particles)

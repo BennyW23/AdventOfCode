@@ -1,4 +1,4 @@
-inp = '''0
+inp = """0
 1
 0
 1
@@ -1041,12 +1041,12 @@ inp = '''0
 -536
 -924
 -924
--365'''
-nums = inp.split('\n')
+-365"""
+nums = inp.split("\n")
 index = 0
 steps = 0
-for x in range(len(nums) -1, -1, -1):
-    if nums[x] == '':
+for x in range(len(nums) - 1, -1, -1):
+    if nums[x] == "":
         nums.pop(x)
         continue
     nums[x] = int(nums[x])
@@ -1055,7 +1055,7 @@ while True:
     try:
         new = index + nums[index]
         if nums[index] >= 3:
-            nums[index] -=1
+            nums[index] -= 1
         else:
             nums[index] += 1
         index = new

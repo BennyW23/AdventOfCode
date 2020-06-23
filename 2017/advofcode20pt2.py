@@ -1,46 +1,58 @@
 class Particle(object):
-	def __init__(self, line):
-		self.collided = False
-		end = line.index('>')
-		self.position = line[3:end].split(',')
-		
-		end = line.index('>', end + 1)
-		temp = line.index('v')
-		self.velocity = line[temp+3:end].split(',')
+    def __init__(self, line):
+        self.collided = False
+        end = line.index(">")
+        self.position = line[3:end].split(",")
 
-		temp = line.index('a')
-		self.accel = line[temp+3:-1].split(',')
-	
-		
-		for num in range(3):
-			self.position[num] = int(self.position[num])
-			self.velocity[num] = int(self.velocity[num])
-			self.accel[num] = int(self.accel[num])
-		
-		self.xquad = (self.accel[0]/2.0, self.velocity[0] * 1.0, self.position[0] * 1.0)
-		self.yquad = (self.accel[1]/2.0, self.velocity[1] * 1.0, self.position[1] * 1.0)
-		self.zquad = (self.accel[2]/2.0, self.velocity[2] * 1.0, self.position[2] * 1.0)
+        end = line.index(">", end + 1)
+        temp = line.index("v")
+        self.velocity = line[temp + 3 : end].split(",")
 
-	def display(self):
-		print self.position, self.velocity, self.accel
-		print self.xquad, self.yquad, self.zquad
-	
-	def xpos(self,time):
-		return self.xquad[0] * (time ** 2) + self.xquad[1] * time + self.xquad[2]
+        temp = line.index("a")
+        self.accel = line[temp + 3 : -1].split(",")
 
-	def ypos(self,time):
-		return self.yquad[0] * (time ** 2) + self.yquad[1] * time + self.yquad[2] 
+        for num in range(3):
+            self.position[num] = int(self.position[num])
+            self.velocity[num] = int(self.velocity[num])
+            self.accel[num] = int(self.accel[num])
 
-	def zpos(self,time):
-		return self.zquad[0] * (time ** 2) + self.zquad[1] * time + self.zquad[2]
-	
-	def collide(self):
-		self.collided = True
-	
-	def is_collided(self):
-		return self.collided
+        self.xquad = (
+            self.accel[0] / 2.0,
+            self.velocity[0] * 1.0,
+            self.position[0] * 1.0,
+        )
+        self.yquad = (
+            self.accel[1] / 2.0,
+            self.velocity[1] * 1.0,
+            self.position[1] * 1.0,
+        )
+        self.zquad = (
+            self.accel[2] / 2.0,
+            self.velocity[2] * 1.0,
+            self.position[2] * 1.0,
+        )
 
-inp = '''p=<-3770,-455,1749>, v=<-4,-77,53>, a=<11,7,-9>
+    def display(self):
+        print self.position, self.velocity, self.accel
+        print self.xquad, self.yquad, self.zquad
+
+    def xpos(self, time):
+        return self.xquad[0] * (time ** 2) + self.xquad[1] * time + self.xquad[2]
+
+    def ypos(self, time):
+        return self.yquad[0] * (time ** 2) + self.yquad[1] * time + self.yquad[2]
+
+    def zpos(self, time):
+        return self.zquad[0] * (time ** 2) + self.zquad[1] * time + self.zquad[2]
+
+    def collide(self):
+        self.collided = True
+
+    def is_collided(self):
+        return self.collided
+
+
+inp = """p=<-3770,-455,1749>, v=<-4,-77,53>, a=<11,7,-9>
 p=<1430,195,-903>, v=<-123,60,20>, a=<5,-5,1>
 p=<-2964,-3029,2594>, v=<-8,157,7>, a=<9,-3,-8>
 p=<-6383,-4277,-3529>, v=<29,70,67>, a=<16,7,5>
@@ -1039,33 +1051,33 @@ p=<-698,1219,2813>, v=<-98,178,401>, a=<7,-12,-25>
 p=<3207,253,-25>, v=<459,36,-2>, a=<-37,-1,-4>
 p=<-1494,-3321,-55>, v=<-207,-471,-7>, a=<11,32,1>
 p=<2641,-2494,-842>, v=<381,-356,-120>, a=<-26,23,7>
-p=<2218,-821,794>, v=<312,-113,114>, a=<-23,9,-7>'''
+p=<2218,-821,794>, v=<312,-113,114>, a=<-23,9,-7>"""
 
-'''p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>
+"""p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>
 p=<-4,0,0>, v=< 2,0,0>, a=< 0,0,0>
 p=<-2,0,0>, v=< 1,0,0>, a=< 0,0,0>
-p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>'''
+p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>"""
 
-lines = inp.split('\n')
+lines = inp.split("\n")
 
 particles = []
 for line in lines:
-	particles.append(Particle(line))
+    particles.append(Particle(line))
 
 
 t = 0
 while True:
-	for i in range(len(particles)):
-		for j in range(i+1, len(particles)):
-			if particles[i].xpos(t) == particles[j].xpos(t):
-				if particles[i].ypos(t) == particles[j].ypos(t):
-					print particles[i].ypos(t), particles[j].ypos(t)
-					if particles[i].zpos(t) == particles[j].zpos(t):
-						particles[i].collide()
-						particles[j].collide()
-	
-	for index in range(len(particles) - 1, -1, -1):
-		if particles[index].is_collided() == True:
-			particles.pop(index)
-	t += 1
-	print t, ' ', len(particles)
+    for i in range(len(particles)):
+        for j in range(i + 1, len(particles)):
+            if particles[i].xpos(t) == particles[j].xpos(t):
+                if particles[i].ypos(t) == particles[j].ypos(t):
+                    print particles[i].ypos(t), particles[j].ypos(t)
+                    if particles[i].zpos(t) == particles[j].zpos(t):
+                        particles[i].collide()
+                        particles[j].collide()
+
+    for index in range(len(particles) - 1, -1, -1):
+        if particles[index].is_collided() == True:
+            particles.pop(index)
+    t += 1
+    print t, " ", len(particles)

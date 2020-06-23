@@ -1,4 +1,4 @@
-inp = '''oui inc 550 if p <= 3
+inp = """oui inc 550 if p <= 3
 abh inc -189 if g == 0
 kq inc 164 if znl != 7
 kq dec 827 if oui == 550
@@ -997,76 +997,76 @@ c dec 976 if tk < 2152
 g inc -118 if ehe != 2179
 xj dec -150 if x == -5425
 ekl dec -332 if xj != -806
-id dec -692 if ekl == 1739'''
+id dec -692 if ekl == 1739"""
 
-'''b inc 5 if a > 1
+"""b inc 5 if a > 1
 a inc 1 if b < 5
 c dec -10 if a >= 1
-c inc -20 if c == 10'''
+c inc -20 if c == 10"""
 
 import sys
 
-#dictionary to hold all the registers and their values in
+# dictionary to hold all the registers and their values in
 registers = {}
 
-#split into lines, then split each line into section
-steps = inp.split('\n')
+# split into lines, then split each line into section
+steps = inp.split("\n")
 for step in range(len(steps)):
-	steps[step] = steps[step].split()
+    steps[step] = steps[step].split()
 
-largest = -sys.maxint -1
-index = ''
+largest = -sys.maxint - 1
+index = ""
 
 for step in steps:
-	#checking the 0 index of input
-	if step[0] not in registers.keys():
-		registers[step[0]] = 0
+    # checking the 0 index of input
+    if step[0] not in registers.keys():
+        registers[step[0]] = 0
 
-	#checking the 1st and 2nd index
-	change = int(step[2])
-	if step[1] == 'dec':
-		change = change * -1
+    # checking the 1st and 2nd index
+    change = int(step[2])
+    if step[1] == "dec":
+        change = change * -1
 
-	#3rd can be ignored because is always the same, checking 4th to see if is a register
-	if step[4] not in registers.keys():
-		registers[step[4]] = 0
+    # 3rd can be ignored because is always the same, checking 4th to see if is a register
+    if step[4] not in registers.keys():
+        registers[step[4]] = 0
 
-	#5th index is most difficult one to check
-	if step[5] == '>':
-		if registers[step[4]] > int(step[6]):
-			registers[step[0]] += change
+    # 5th index is most difficult one to check
+    if step[5] == ">":
+        if registers[step[4]] > int(step[6]):
+            registers[step[0]] += change
 
-	elif step[5] == '==':
-		if registers[step[4]] == int(step[6]):
-			registers[step[0]] += change
+    elif step[5] == "==":
+        if registers[step[4]] == int(step[6]):
+            registers[step[0]] += change
 
-	elif step[5] == '<':
-		if registers[step[4]] < int(step[6]):
-			registers[step[0]] += change
+    elif step[5] == "<":
+        if registers[step[4]] < int(step[6]):
+            registers[step[0]] += change
 
-	elif step[5] == '<=':
-		if registers[step[4]] <= int(step[6]):
-			registers[step[0]] += change
+    elif step[5] == "<=":
+        if registers[step[4]] <= int(step[6]):
+            registers[step[0]] += change
 
-	elif step[5] == '>=':
-		if registers[step[4]] >= int(step[6]):
-			registers[step[0]] += change
+    elif step[5] == ">=":
+        if registers[step[4]] >= int(step[6]):
+            registers[step[0]] += change
 
-	elif step[5] == '!=':
-		if registers[step[4]] != int(step[6]):
-			registers[step[0]] += change
+    elif step[5] == "!=":
+        if registers[step[4]] != int(step[6]):
+            registers[step[0]] += change
 
-	if registers[step[0]] > largest:
-		largest = registers[step[0]]
-		index = step[0]
-		print 'New largest is: [0] at [1]'.format(str(registers[step[0]]), step[0]) 
+    if registers[step[0]] > largest:
+        largest = registers[step[0]]
+        index = step[0]
+        print "New largest is: [0] at [1]".format(str(registers[step[0]]), step[0])
 
-	print ' '.join(step)
+    print " ".join(step)
 
-print '\n'
+print "\n"
 print registers
 
-'''
+"""
 #part 1 specific
 largest = -sys.maxint -1
 index = ''
@@ -1074,5 +1074,5 @@ for key,value in registers.iteritems():
 	if value > largest:
 		largest = value
 		index = key
-'''
+"""
 print index, largest

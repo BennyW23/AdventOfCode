@@ -1,4 +1,4 @@
-inp = '''0: 3
+inp = """0: 3
 1: 2
 2: 4
 4: 6
@@ -41,16 +41,16 @@ inp = '''0: 3
 86: 14
 90: 17
 96: 20
-98: 24'''
+98: 24"""
 
 
-'''0: 3
+"""0: 3
 1: 2
 4: 4
-6: 4'''
+6: 4"""
 
 
-'''
+"""
 def increment((index, scanrange)):
 	if index == scanrange - 1:
 		index = -(scanrange - 1)
@@ -125,33 +125,32 @@ while caught ==  True:
 print '\n'
 print delay
 #print totalseverity
-'''
+"""
 dic = {}
 
 lines = inp.split("\n")
 values = []
 for num in range(len(lines)):
-	values += lines[num].split(": ")
+    values += lines[num].split(": ")
 
-for i in range(0 , len(values), 2):
-	dic[int(values[i])] = int(values[i+1])
+for i in range(0, len(values), 2):
+    dic[int(values[i])] = int(values[i + 1])
 
 s = 0
 for loc in dic.keys():
-	if loc % (2 * (dic[loc] -1)) == 0:
-		s += loc * dic[loc]
+    if loc % (2 * (dic[loc] - 1)) == 0:
+        s += loc * dic[loc]
 
 print s
 
 delay = 0
 caught = True
 while caught == True:
-	caught = False
-	for loc in dic.keys():
-		if (loc + delay) % (2 * (dic[loc] -1)) == 0:
-			caught = True
-			delay += 1
-			break
+    caught = False
+    for loc in dic.keys():
+        if (loc + delay) % (2 * (dic[loc] - 1)) == 0:
+            caught = True
+            delay += 1
+            break
 
 print delay
-

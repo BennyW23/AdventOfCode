@@ -1,4 +1,4 @@
-string = '''una bokpr ftz ryw nau yknf fguaczl anu
+string = """una bokpr ftz ryw nau yknf fguaczl anu
 tvay wvco bcoblpt fwzg sfsys zvuqll mcbhwz ovcw fgdy
 ynsocz vid rfmsy essqt fpbjvvq sldje qfpvjvb
 yvh nxc kla vhy vkbq cxfzgr
@@ -509,10 +509,10 @@ xjbyy mxfxa ogvk nqiy qyni ldqwryj niyq jjixc
 uhbul daccgva xtiz dim uhbul yjmakv yjmakv
 huo esajup ouj oju ujo
 eeeu hwvsk jfkmds okhi pogskfm itdlbll
-lpyubo dylpfb iehwug decj ntidy cuygyg lalkb iutu oxgm imn'''
+lpyubo dylpfb iehwug decj ntidy cuygyg lalkb iutu oxgm imn"""
 
 
-'''
+"""
 #part 1
 strings = string.split("\n")
 allowed = 0
@@ -534,20 +534,20 @@ for x in range(len(strings)):
         allowed +=1
         print strings[x]
 print allowed
-'''
-#part 2
+"""
+# part 2
 strings = string.split("\n")
 allowed = 0
 for x in range(len(strings)):
-    if strings[x] == '':
+    if strings[x] == "":
         continue
     valid = True
     row = strings[x].split()
     for word in range(len(row)):
-        row[word] = ''.join(sorted(row[word]))
+        row[word] = "".join(sorted(row[word]))
     first = 0
     while first < len(row):
-        for second in range(first + 1,len(row)):
+        for second in range(first + 1, len(row)):
             if row[first] == row[second]:
                 valid = False
                 break
@@ -555,7 +555,6 @@ for x in range(len(strings)):
         if valid == False:
             break
     if valid == True:
-        allowed +=1
+        allowed += 1
         print strings[x]
 print allowed
-

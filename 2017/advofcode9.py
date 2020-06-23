@@ -6,29 +6,29 @@ score = 0
 is_garbage = False
 garbage = 0
 
-while index < len(inp) -1 :
-	index += 1
+while index < len(inp) - 1:
+    index += 1
 
-	if inp[index] == "!":
-		index +=1
+    if inp[index] == "!":
+        index += 1
 
-	elif is_garbage == True:
-		if inp[index] ==">":
-			is_garbage = False
-		else:
-			garbage += 1
+    elif is_garbage == True:
+        if inp[index] == ">":
+            is_garbage = False
+        else:
+            garbage += 1
 
-	elif inp[index] == "{":
-		score += 1
+    elif inp[index] == "{":
+        score += 1
 
-	elif inp[index] == "}":
-		print score,
-		s += score
-		score -=1
+    elif inp[index] == "}":
+        print score,
+        s += score
+        score -= 1
 
-	elif inp[index] == '<':
-		is_garbage = True
+    elif inp[index] == "<":
+        is_garbage = True
 
-print '\n'
+print "\n"
 print s
 print garbage
