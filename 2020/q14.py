@@ -1,3 +1,5 @@
+import itertools
+
 inp = [str.strip(x) for x in open('q14_input.txt', 'r')]
 
 def change_mask_1(mask):
@@ -31,4 +33,42 @@ for line in inp:
 
 print(sum(memory.values()))
 
+def change_mask_2(mask):
+    new_overwritten = set()
+    new_floating = []
+    for count, letter in enumerate(mask[::-1]):
+        if letter == '1':
+            new_overwritten.add(count)
+        elif letter == 'X':
+            new_floating.append(count)
+    return new_overwritten, new_floating
 
+def apply_mask_2(address, stored_value, overwritten, floating):
+    addresses = set()
+    for power in overwritten:
+        address = address | (1 << power)
+    for permutation in list(itertools.product([0,1], repeat=len(floating))):
+        new_address = address
+        for count, value in enumerate(permutation):
+            power = floating[count]
+            if value == 1:
+                new_address = new_address | (1 << power)
+            else:
+                new_address = new_address & ~ (1 << power)
+        addresses.add(new_address)
+    for location in addresses:
+        memory[location] = stored_value
+
+overwritten = set()
+floating = set()
+memory = {}
+for line in inp:
+    if line[:4] == 'mask':
+        overwritten, floating = change_mask_2(line[7:])
+    else:
+        parts = line.split(' ')
+        address = int(parts[0][4 : parts[0].index(']')])
+        value = int(parts[2])
+        apply_mask_2(address, value, overwritten, floating)
+
+print(sum(memory.values()))
