@@ -1,4 +1,4 @@
-numbers = [2,0,1,9,5,19]
+numbers = [2, 0, 1, 9, 5, 19]
 dict = {}
 cur_index = 1
 for i in range(len(numbers) - 1):
