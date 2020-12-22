@@ -28,8 +28,6 @@ cache[values[0]] = 1
 for number in values:
     if number == values[0]:
         continue
-    cache[number] = (
-        cache.get(number + 1, 0) + cache.get(number + 2, 0) + cache.get(number + 3, 0)
-    )
+    cache[number] = cache.get(number + 1, 0) + cache.get(number + 2, 0) + cache.get(number + 3, 0)
 
 print(cache[0])

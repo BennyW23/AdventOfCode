@@ -21,7 +21,9 @@ def get_regex(rule_num):
     return regex_content
 
 
-lines = [line.strip() for line in open("q19_input.txt", "r").read().split("\n\n")[0].strip().split("\n")]
+lines = [
+    line.strip() for line in open("q19_input.txt", "r").read().split("\n\n")[0].strip().split("\n")
+]
 
 regex = {}
 rules = {}
@@ -43,7 +45,9 @@ for line in lines:
     rules[rule_num] = entry
 
 
-values = [line.strip() for line in open("q19_input.txt", "r").read().split("\n\n")[1].strip().split("\n")]
+values = [
+    line.strip() for line in open("q19_input.txt", "r").read().split("\n\n")[1].strip().split("\n")
+]
 
 
 pattern_part_1 = re.compile(get_regex("0"))

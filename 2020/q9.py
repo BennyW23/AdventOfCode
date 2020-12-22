@@ -30,18 +30,8 @@ for size in range(2, len(original_input)):
             total += original_input[i]
         if total == value:
             print(
-                max(
-                    [
-                        original_input[i]
-                        for i in range(starting_index, starting_index + size)
-                    ]
-                )
-                + min(
-                    [
-                        original_input[i]
-                        for i in range(starting_index, starting_index + size)
-                    ]
-                )
+                max([original_input[i] for i in range(starting_index, starting_index + size)])
+                + min([original_input[i] for i in range(starting_index, starting_index + size)])
             )
             done = True
             break

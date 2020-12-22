@@ -19,11 +19,7 @@ def eval_helper_2(equation):
     if "*" in equation:
         index = equation.index("*")
         return str(
-            eval(
-                eval_helper_2(equation[:index])
-                + "*"
-                + eval_helper_2(equation[index + 1 :])
-            )
+            eval(eval_helper_2(equation[:index]) + "*" + eval_helper_2(equation[index + 1 :]))
         )
     return str(eval("".join(equation)))
 

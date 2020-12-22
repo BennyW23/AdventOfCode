@@ -34,9 +34,7 @@ def get_next_gen(active, neighbor_directions, dimensions):
 
     for active_cube in active:
         for direction in neighbor_directions:
-            neighbor = tuple(
-                [active_cube[dim] + direction[dim] for dim in range(dimensions)]
-            )
+            neighbor = tuple([active_cube[dim] + direction[dim] for dim in range(dimensions)])
             neighbors[neighbor] = neighbors.get(neighbor, 0) + 1
 
     for cube, count in neighbors.items():
