@@ -9,7 +9,7 @@ import (
 
 func Day3() {
 	fmt.Printf("\nDay 3: \n")
-	stringData := util.ReadInput("./day3.txt")
+	stringData := util.ReadInput("./day03.txt")
 
 	var frequencies = countAllFrequencies(stringData)
 

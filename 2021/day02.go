@@ -9,7 +9,7 @@ import (
 
 func Day2() {
 	fmt.Printf("\nDay 2: \n")
-	stringData := util.ReadInput("./day2.txt")
+	stringData := util.ReadInput("./day02.txt")
 
 	xPos, yPos := int64(0), int64(0)
 	for _, command := range stringData {
