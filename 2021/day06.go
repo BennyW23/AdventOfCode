@@ -9,10 +9,10 @@ import (
 
 func Day6() {
 	fmt.Printf("\nDay 6: \n")
-	numDaysPart1 := 80
-	numDaysPart2 := 256
 	stringData := util.ReadInput("./day06.txt")
 	initialFish := strings.Split(stringData[0], ",")
+	numDaysPart1 := 80
+	numDaysPart2 := 256
 
 	fishCount := make(map[int]int)
 	for _, val := range initialFish {
