@@ -25,7 +25,7 @@ func Day7() {
 	// sortedCrabs := insertionSort(initialCrabs)
 	// median := sortedCrabs[len(sortedCrabs)/2]
 
-	median := quickSelect(initialCrabs, 0, len(initialCrabs) - 1, len(initialCrabs) / 2)
+	median := quickSelectDay7(initialCrabs, 0, len(initialCrabs) - 1, len(initialCrabs) / 2)
 	total := 0
 	for _, v := range initialCrabs {
 		if v > median {
@@ -63,24 +63,24 @@ func Day7() {
 }
 
 // basic quickSelect implementation, finds the k-th smallest element within left..right, inclusive
-func quickSelect(list []int, left int, right int, k int) int {
+func quickSelectDay7(list []int, left int, right int, k int) int {
 	if left == right {
 		return list[left]
 	}
 	pivotIndex := left + (rand.Int() % (right - left + 1))
-	pivotIndex = partition(list, left, right, pivotIndex)
+	pivotIndex = partitionDay7(list, left, right, pivotIndex)
 	if k == pivotIndex {
 		return list[k]
 	} else if k < pivotIndex {
-		return quickSelect(list, left, pivotIndex - 1, k)
+		return quickSelectDay7(list, left, pivotIndex - 1, k)
 	} else {
-		return quickSelect(list, pivotIndex + 1, right, k)
+		return quickSelectDay7(list, pivotIndex + 1, right, k)
 	}
 
 }
 
 // partitions array[left...right] based on the pivot and returns the new index of the pivot
-func partition(list []int, left int, right int, pivotIndex int) int {
+func partitionDay7(list []int, left int, right int, pivotIndex int) int {
 	pivotValue := list[pivotIndex]
 	list[right], list[pivotIndex] = list[pivotIndex], list[right]
 	swapIndex := left

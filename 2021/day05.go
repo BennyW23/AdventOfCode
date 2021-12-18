@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-type Point struct {
+type Int64Point struct {
 	x int64
 	y int64
 }
@@ -16,8 +16,8 @@ func Day5() {
 	fmt.Printf("\nDay 5: \n")
 	stringData := util.ReadInput("./day05.txt")
 
-	counter := make(map[Point]int)
-	diagonalCounter := make(map[Point]int)
+	counter := make(map[Int64Point]int)
+	diagonalCounter := make(map[Int64Point]int)
 
 	for lineNum := 0; lineNum < len(stringData); lineNum++ {
 		line := strings.Fields(stringData[lineNum])
@@ -45,12 +45,12 @@ func Day5() {
 
 			if commonCoordinateIndex == 0 {
 				for i := start; i <= end; i++ {
-					point := Point{commonCoord, i}
+					point := Int64Point{commonCoord, i}
 					counter[point]++
 				}
 			} else {
 				for i := start; i <= end; i++ {
-					point := Point{i, commonCoord}
+					point := Int64Point{i, commonCoord}
 					counter[point]++
 				}
 			}
@@ -73,7 +73,7 @@ func Day5() {
 			}
 
 			for i := int64(0); i <= numPoints; i++ {
-				point := Point{firstCoordX + (dx * i), firstCoordY + (dy * i)}
+				point := Int64Point{firstCoordX + (dx * i), firstCoordY + (dy * i)}
 				diagonalCounter[point]++
 			}
 		}
