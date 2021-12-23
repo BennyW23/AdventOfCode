@@ -51,10 +51,9 @@ func Day13() {
 
 	fmt.Println("Part 2:")
 
-	// picture is inverted?
-	for col := 0; col < yMax; col++ {
-		for row := 0; row < xMax; row++ {
-			val := points[PointDay13{row, col}]
+	for row := 0; row < yMax; row++ {
+		for col := 0; col < xMax; col++ {
+			val := points[PointDay13{col, row}]
 			if val {
 				fmt.Printf("%c", 0x2588)
 			} else {
