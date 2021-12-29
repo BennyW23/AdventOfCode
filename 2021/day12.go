@@ -6,8 +6,6 @@ import (
 	"strings"
 )
 
-
-
 func Day12() {
 	fmt.Printf("\nDay 12: \n")
 	stringData := util.ReadInput("./day12_input.txt")
@@ -18,16 +16,15 @@ func Day12() {
 		if caves[1] != "start" && caves[0] != "end" {
 			neighbors[caves[0]] = append(neighbors[caves[0]], caves[1])
 		}
-		if caves[0] != "start" && caves[1] != "end"{
+		if caves[0] != "start" && caves[1] != "end" {
 			neighbors[caves[1]] = append(neighbors[caves[1]], caves[0])
 		}
 	}
 
 	part1 := caveDepthFirstSearchOnceOnly("start", make([]string, 0), neighbors)
 	fmt.Printf("Part 1: %d\n", part1)
-	part2 := caveDepthFirstSearchAllowTwice("start", make([]string, 0), neighbors,  false)
+	part2 := caveDepthFirstSearchAllowTwice("start", make([]string, 0), neighbors, false)
 	fmt.Printf("Part 2: %d\n", part2)
-
 
 }
 

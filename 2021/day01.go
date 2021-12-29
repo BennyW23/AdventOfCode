@@ -32,4 +32,3 @@ func Day1() {
 	}
 	fmt.Printf("Part 2: %d\n", partTwoAns)
 }
-

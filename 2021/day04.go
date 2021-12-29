@@ -17,17 +17,17 @@ func Day4() {
 	bestScore := int64(-1)
 	worstNumNumbers := 0
 	worstScore := int64(-1)
-	for ;index < len(stringData); index += 6 {
-		board := Board{make(map[string]int), make(map[int]string) }
+	for ; index < len(stringData); index += 6 {
+		board := Board{make(map[string]int), make(map[int]string)}
 		for row := 0; row < 5; row++ {
 			rowOffset := 5 * row
-			for col, value := range strings.Fields(stringData[index + row]) {
+			for col, value := range strings.Fields(stringData[index+row]) {
 				board.values[value] = rowOffset + col
-				board.indexes[rowOffset + col] = value
+				board.indexes[rowOffset+col] = value
 			}
 		}
 
-		numNumbers , score := board.calculateScore(numbers)
+		numNumbers, score := board.calculateScore(numbers)
 		if numNumbers < bestNumNumbers {
 			bestNumNumbers = numNumbers
 			bestScore = score
@@ -40,12 +40,12 @@ func Day4() {
 
 	winningNum, _ := strconv.ParseInt(numbers[bestNumNumbers], 10, 64)
 	losingNum, _ := strconv.ParseInt(numbers[worstNumNumbers], 10, 64)
-	fmt.Printf("Part 1: %d\n", bestScore * winningNum)
-	fmt.Printf("Part 2: %d\n", worstScore * losingNum)
+	fmt.Printf("Part 1: %d\n", bestScore*winningNum)
+	fmt.Printf("Part 2: %d\n", worstScore*losingNum)
 }
 
 type Board struct {
-	values map[string]int
+	values  map[string]int
 	indexes map[int]string
 }
 
@@ -67,10 +67,10 @@ func (board Board) calculateScore(numbers []string) (int, int64) {
 
 func checkWin(indexes map[int]bool) bool {
 	// check each row
-	for row := 0; row < 5; row++  {
+	for row := 0; row < 5; row++ {
 		win := true
 		for col := 0; col < 5; col++ {
-			if !indexes[5 * row + col] {
+			if !indexes[5*row+col] {
 				win = false
 				break
 			}
@@ -81,10 +81,10 @@ func checkWin(indexes map[int]bool) bool {
 	}
 
 	// check each col
-	for col := 0; col < 5; col ++ {
+	for col := 0; col < 5; col++ {
 		win := true
 		for row := 0; row < 5; row++ {
-			if !indexes[5 * row + col] {
+			if !indexes[5*row+col] {
 				win = false
 				break
 			}

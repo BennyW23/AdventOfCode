@@ -18,7 +18,7 @@ func Day9() {
 	for _, str := range stringData {
 		rowHeights := make([]int, 0)
 		for _, letter := range str {
-			rowHeights = append(rowHeights, int(letter - '0'))
+			rowHeights = append(rowHeights, int(letter-'0'))
 		}
 		heights = append(heights, rowHeights)
 	}
@@ -34,9 +34,9 @@ func Day9() {
 				continue
 			} else if j > 0 && currentVal >= heights[i][j-1] {
 				continue
-			} else if i < len(stringData) - 1 && currentVal >= heights[i+1][j] {
+			} else if i < len(stringData)-1 && currentVal >= heights[i+1][j] {
 				continue
-			} else if j < rowlen - 1 && currentVal >= heights[i][j+1] {
+			} else if j < rowlen-1 && currentVal >= heights[i][j+1] {
 				continue
 			}
 			sinks = append(sinks, IntPoint{i, j})
@@ -57,7 +57,7 @@ func Day9() {
 
 	largest, secondLargest, thirdLargest := findThreeLargestValues(basinSizes)
 
-	fmt.Printf("Part 2: %d\n", largest * secondLargest * thirdLargest)
+	fmt.Printf("Part 2: %d\n", largest*secondLargest*thirdLargest)
 }
 
 func findBasinSizeDfs(heights [][]int, sink IntPoint, accessed [][]bool) int {
@@ -73,16 +73,16 @@ func findBasinSizeDfs(heights [][]int, sink IntPoint, accessed [][]bool) int {
 	accessed[x][y] = true
 	total := 1
 	if x > 0 {
-		total += findBasinSizeDfs(heights, IntPoint{x-1, y}, accessed)
+		total += findBasinSizeDfs(heights, IntPoint{x - 1, y}, accessed)
 	}
-	if x < len(heights) - 1 {
-		total += findBasinSizeDfs(heights, IntPoint{x+1, y}, accessed)
+	if x < len(heights)-1 {
+		total += findBasinSizeDfs(heights, IntPoint{x + 1, y}, accessed)
 	}
 	if y > 0 {
-		total += findBasinSizeDfs(heights, IntPoint{x, y-1}, accessed)
+		total += findBasinSizeDfs(heights, IntPoint{x, y - 1}, accessed)
 	}
-	if y < len(heights[0]) - 1 {
-		total += findBasinSizeDfs(heights, IntPoint{x, y+1}, accessed)
+	if y < len(heights[0])-1 {
+		total += findBasinSizeDfs(heights, IntPoint{x, y + 1}, accessed)
 	}
 	return total
 }

@@ -6,8 +6,6 @@ import (
 	"fmt"
 )
 
-
-
 func Day15() {
 	fmt.Printf("\nDay 15: \n")
 	stringData := util.ReadInput("./day15_input.txt")
@@ -28,11 +26,14 @@ func Day15() {
 	}
 	visited[0][0] = true
 
-	directions := [4]struct{dx int; dy int}{
-		{1 ,0},
-		{-1 ,0},
-		{0 ,1},
-		{0 ,-1},
+	directions := [4]struct {
+		dx int
+		dy int
+	}{
+		{1, 0},
+		{-1, 0},
+		{0, 1},
+		{0, -1},
 	}
 
 	// initialize the heap data structure
@@ -41,12 +42,12 @@ func Day15() {
 	heap.Push(h, HeapEntry{1, 0, grid[1][0]})
 
 	running := true
-	for ; running && h.Len() > 0; {
+	for running && h.Len() > 0 {
 		entry := heap.Pop(h).(HeapEntry)
 		if visited[entry.x][entry.y] {
 			continue
 		}
-		if entry.x == numCols - 1 && entry.y == numRows - 1 {
+		if entry.x == numCols-1 && entry.y == numRows-1 {
 			fmt.Printf("Part 1: %d\n", entry.val)
 			running = false
 		} else {
@@ -63,28 +64,31 @@ func Day15() {
 	}
 
 	// Reset everything for part 2
-	visited = make([][]bool, 5 * numRows)
-	for i := 0; i < 5 * numRows; i++ {
-		visited[i] = make([]bool, 5 * numCols)
+	visited = make([][]bool, 5*numRows)
+	for i := 0; i < 5*numRows; i++ {
+		visited[i] = make([]bool, 5*numCols)
 	}
 	// initialize the heap data structure
 	h = &GridHeap{}
 	heap.Push(h, HeapEntry{0, 1, grid[0][1]})
 	heap.Push(h, HeapEntry{1, 0, grid[1][0]})
 
-	directions = [4]struct{dx int; dy int}{
-		{1 ,0},
-		{-1 ,0},
-		{0 ,1},
-		{0 ,-1},
+	directions = [4]struct {
+		dx int
+		dy int
+	}{
+		{1, 0},
+		{-1, 0},
+		{0, 1},
+		{0, -1},
 	}
 	running = true
-	for ; running && h.Len() > 0; {
+	for running && h.Len() > 0 {
 		entry := heap.Pop(h).(HeapEntry)
 		if visited[entry.x][entry.y] {
 			continue
 		}
-		if entry.x == (5 * numCols) - 1 && entry.y == (5 * numRows) - 1 {
+		if entry.x == (5*numCols)-1 && entry.y == (5*numRows)-1 {
 			fmt.Printf("Part 2: %d\n", entry.val)
 			running = false
 		} else {
@@ -92,11 +96,11 @@ func Day15() {
 			for _, dir := range directions {
 				xNext := entry.x + dir.dx
 				yNext := entry.y + dir.dy
-				if xNext < 0 || xNext >= 5 * numCols || yNext < 0 || yNext >= 5 * numRows || visited[xNext][yNext] {
+				if xNext < 0 || xNext >= 5*numCols || yNext < 0 || yNext >= 5*numRows || visited[xNext][yNext] {
 					continue
 				}
-				gridVal := grid[xNext % numCols][yNext % numRows] + xNext / numCols + yNext / numRows
-				for ;gridVal > 9; {
+				gridVal := grid[xNext%numCols][yNext%numRows] + xNext/numCols + yNext/numRows
+				for gridVal > 9 {
 					gridVal -= 9
 				}
 				heap.Push(h, HeapEntry{xNext, yNext, entry.val + gridVal})
@@ -106,8 +110,8 @@ func Day15() {
 }
 
 type HeapEntry struct {
-	x int
-	y int
+	x   int
+	y   int
 	val int
 }
 type GridHeap []HeapEntry

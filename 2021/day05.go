@@ -87,7 +87,7 @@ func Day5() {
 	}
 	fmt.Printf("Part 1: %d\n", numDangerPoints)
 
-	for point, value := range diagonalCounter{
+	for point, value := range diagonalCounter {
 		counter[point] += value
 	}
 	numDangerPoints = 0

@@ -19,13 +19,12 @@ func Day7() {
 		initialCrabs = append(initialCrabs, crab)
 	}
 
-
 	// part 1 is equivalent to finding the absolute differences to the median
 
 	// sortedCrabs := insertionSort(initialCrabs)
 	// median := sortedCrabs[len(sortedCrabs)/2]
 
-	median := quickSelectDay7(initialCrabs, 0, len(initialCrabs) - 1, len(initialCrabs) / 2)
+	median := quickSelectDay7(initialCrabs, 0, len(initialCrabs)-1, len(initialCrabs)/2)
 	total := 0
 	for _, v := range initialCrabs {
 		if v > median {
@@ -44,7 +43,7 @@ func Day7() {
 	// rounded down, try this and mean+1
 	mean := total / len(initialCrabs)
 	minFuel := math.MaxInt
-	for i := mean; i < mean + 2; i++ {
+	for i := mean; i < mean+2; i++ {
 		fuel := 0
 		for _, v := range initialCrabs {
 			diff := i - v
@@ -72,9 +71,9 @@ func quickSelectDay7(list []int, left int, right int, k int) int {
 	if k == pivotIndex {
 		return list[k]
 	} else if k < pivotIndex {
-		return quickSelectDay7(list, left, pivotIndex - 1, k)
+		return quickSelectDay7(list, left, pivotIndex-1, k)
 	} else {
-		return quickSelectDay7(list, pivotIndex + 1, right, k)
+		return quickSelectDay7(list, pivotIndex+1, right, k)
 	}
 
 }
@@ -99,10 +98,10 @@ func insertionSort(list []int) []int {
 	result := make([]int, 0)
 	for itemNum, value := range list {
 		found := false
-		for index := 0 ; index < itemNum; index++ {
+		for index := 0; index < itemNum; index++ {
 			if value < result[index] {
 				found = true
-				result = append(result[:index + 1], result[index:]...)
+				result = append(result[:index+1], result[index:]...)
 				result[index] = value
 				break
 			}

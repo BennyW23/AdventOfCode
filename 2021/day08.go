@@ -7,7 +7,6 @@ import (
 	"strings"
 )
 
-
 func Day8() {
 	fmt.Printf("\nDay 8: \n")
 	stringData := util.ReadInput("./day08_input.txt")
@@ -58,7 +57,6 @@ func Day8() {
 	fmt.Printf("Part 2: %d\n", total)
 }
 
-
 func NewSet() RuneSet {
 	s := &RuneSet{}
 	s.list = make(map[rune]struct{})
@@ -86,9 +84,9 @@ func (s *RuneSet) AddMulti(list ...rune) {
 }
 
 type Configuration struct {
-	topLeft rune
+	topLeft  rune
 	topRight rune
-	middle rune
+	middle   rune
 	botRight rune
 }
 
@@ -130,13 +128,13 @@ func getConfiguration(one RuneSet, four RuneSet, size5 []RuneSet, size6 []RuneSe
 	candidate = topLeftCandidates[0]
 	found = false
 	for _, letterRunes := range size5 {
-		 if !letterRunes.Has(candidate) {
-			 // this must be the top left
-			 found = true
-			 configuration.topLeft = candidate
-			 configuration.middle = topLeftCandidates[1]
-			 break
-		 }
+		if !letterRunes.Has(candidate) {
+			// this must be the top left
+			found = true
+			configuration.topLeft = candidate
+			configuration.middle = topLeftCandidates[1]
+			break
+		}
 	}
 	if !found {
 		configuration.topLeft = topLeftCandidates[1]

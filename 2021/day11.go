@@ -29,27 +29,34 @@ func Day11() {
 
 	}
 
-
-
 	fmt.Printf("Part 1: %d\n", totalFlashes)
 	fmt.Printf("Part 2: %d\n", iter)
 }
 
 func iterate(octopi [10][10]int) ([10][10]int, int) {
-	toFlash := make([]struct{x int; y int}, 0)
-	flashed := make([]struct{x int; y int}, 0)
+	toFlash := make([]struct {
+		x int
+		y int
+	}, 0)
+	flashed := make([]struct {
+		x int
+		y int
+	}, 0)
 	for row := 0; row < 10; row++ {
 		for col := 0; col < 10; col++ {
 			octopi[row][col]++
 			if octopi[row][col] == 10 {
-				toFlash = append(toFlash, struct{x int; y int}{row, col })
+				toFlash = append(toFlash, struct {
+					x int
+					y int
+				}{row, col})
 			}
 		}
 	}
 
-	for ; len(toFlash) > 0; {
-		coordinate := toFlash[len(toFlash) -1]
-		toFlash = toFlash[:len(toFlash) - 1]
+	for len(toFlash) > 0 {
+		coordinate := toFlash[len(toFlash)-1]
+		toFlash = toFlash[:len(toFlash)-1]
 		flashed = append(flashed, coordinate)
 		xMin, xMax, yMin, yMax := findBounds(coordinate)
 
@@ -57,7 +64,10 @@ func iterate(octopi [10][10]int) ([10][10]int, int) {
 			for col := yMin; col <= yMax; col++ {
 				octopi[row][col]++
 				if octopi[row][col] == 10 {
-					toFlash = append(toFlash, struct{x int; y int}{row, col })
+					toFlash = append(toFlash, struct {
+						x int
+						y int
+					}{row, col})
 				}
 			}
 		}
@@ -70,7 +80,10 @@ func iterate(octopi [10][10]int) ([10][10]int, int) {
 	return octopi, len(flashed)
 }
 
-func findBounds(coordinate struct{x int; y int}) (int, int, int, int) {
+func findBounds(coordinate struct {
+	x int
+	y int
+}) (int, int, int, int) {
 
 	xMin := coordinate.x - 1
 	if xMin < 0 {

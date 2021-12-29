@@ -18,7 +18,7 @@ func Day3() {
 	var gammaBuilder strings.Builder
 	var epsilonBuilder strings.Builder
 	for i := 0; i < stringLength; i++ {
-		if frequencies[i] > numStrings /2 {
+		if frequencies[i] > numStrings/2 {
 			gammaBuilder.WriteString("1")
 			epsilonBuilder.WriteString("0")
 		} else {
@@ -29,11 +29,11 @@ func Day3() {
 
 	gamma, _ := strconv.ParseInt(gammaBuilder.String(), 2, 32)
 	epsilon, _ := strconv.ParseInt(epsilonBuilder.String(), 2, 32)
-	fmt.Printf("Part 1: %d\n", gamma * epsilon)
+	fmt.Printf("Part 1: %d\n", gamma*epsilon)
 
-	oxygenFilter, carbonFilter := make([]string , 0), make([]string , 0)
+	oxygenFilter, carbonFilter := make([]string, 0), make([]string, 0)
 	var mostFrequentFirstChar byte = '0'
-	if frequencies[0] >= numStrings /2 {
+	if frequencies[0] >= numStrings/2 {
 		mostFrequentFirstChar = '1'
 	}
 
@@ -55,7 +55,7 @@ func Day3() {
 		numOxygen := len(oxygenFilter)
 
 		var mostCommon byte = '0'
-		if 2 * frequency >= numOxygen {
+		if 2*frequency >= numOxygen {
 			mostCommon = '1'
 		}
 
@@ -71,7 +71,7 @@ func Day3() {
 		numCarbon := len(carbonFilter)
 
 		var leastCommon byte = '1'
-		if 2 * frequency >= numCarbon {
+		if 2*frequency >= numCarbon {
 			leastCommon = '0'
 		}
 
@@ -81,7 +81,7 @@ func Day3() {
 	oxygenValue, _ := strconv.ParseInt(oxygenFilter[0], 2, 32)
 	carbonValue, _ := strconv.ParseInt(carbonFilter[0], 2, 32)
 
-	fmt.Printf("Part 2: %d", oxygenValue * carbonValue)
+	fmt.Printf("Part 2: %d", oxygenValue*carbonValue)
 }
 
 func countAllFrequencies(data []string) []int {
@@ -97,7 +97,7 @@ func countAllFrequencies(data []string) []int {
 	return frequencies
 }
 
-func countOnesAtIndex(data []string, index int) int{
+func countOnesAtIndex(data []string, index int) int {
 	frequency := 0
 	for _, v := range data {
 		if v[index] == '1' {

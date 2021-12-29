@@ -28,7 +28,7 @@ func Day2() {
 			yPos += val
 		}
 	}
-	fmt.Printf("Part 1: %d\n", xPos * yPos)
+	fmt.Printf("Part 1: %d\n", xPos*yPos)
 
 	aim := int64(0)
 	xPos, yPos = int64(0), int64(0)
@@ -49,5 +49,5 @@ func Day2() {
 			aim += val
 		}
 	}
-	fmt.Printf("Part 2: %d\n", xPos * yPos)
+	fmt.Printf("Part 2: %d\n", xPos*yPos)
 }

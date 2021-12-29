@@ -20,10 +20,10 @@ func Day6() {
 		fishCount[days]++
 	}
 
-	for i:= 0; i < numDaysPart1; i++ {
+	for i := 0; i < numDaysPart1; i++ {
 		numZeros := fishCount[0]
 		for day := 0; day < 8; day++ {
-			fishCount[day] = fishCount[day + 1]
+			fishCount[day] = fishCount[day+1]
 		}
 		fishCount[8] = numZeros
 		fishCount[6] += numZeros
@@ -36,10 +36,10 @@ func Day6() {
 
 	fmt.Printf("Part 1: %d\n", total)
 
-	for i:= 0; i < numDaysPart2 - numDaysPart1; i++ {
+	for i := 0; i < numDaysPart2-numDaysPart1; i++ {
 		numZeros := fishCount[0]
 		for day := 0; day < 8; day++ {
-			fishCount[day] = fishCount[day + 1]
+			fishCount[day] = fishCount[day+1]
 		}
 		fishCount[8] = numZeros
 		fishCount[6] += numZeros

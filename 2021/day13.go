@@ -14,7 +14,7 @@ type PointDay13 struct {
 }
 
 type FoldDay13 struct {
-	axis string
+	axis  string
 	value int
 }
 
