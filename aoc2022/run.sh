@@ -1,0 +1,1 @@
+rebar3 escriptize && _build/default/bin/aoc2022 $1 $2
