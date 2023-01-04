@@ -1,7 +1,7 @@
 -module(aoc2022).
 -export([main/1]).
 
--define(DAYS_DONE, [1]).
+-define(DAYS_DONE, [1,2,3]).
 
 %%====================================================================
 %% API functions
@@ -44,6 +44,14 @@ run(Day, Part) when 1 =< Day, Day =< 25, 1 =< Part, Part =< 2 ->
             day01:part1();
         Day =:= 1 andalso Part =:= 2 ->
             day01:part2();
+        Day == 2 andalso Part == 1 ->
+            day02:part1();
+        Day =:= 2 andalso Part =:= 2 ->
+            day02:part2();
+        Day == 3 andalso Part == 1 ->
+            day03:part1();
+        Day =:= 3 andalso Part =:= 2 ->
+            day03:part2();
         true ->
             io:format("Day ~p, Part ~p not found ~n", [Day, Part])
     end,
