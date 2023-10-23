@@ -1,0 +1,7 @@
+go 1.21.3
+
+use (
+	./goutil
+	./aoc2021
+	./aoc2022/src/go
+)
