@@ -6,14 +6,14 @@ import (
 	"goutil"
 )
 
-func DayXX() {
-	fmt.Printf("\nDay XX: \n")
-	stringData := goutil.ReadFile("../../input/dayXX.txt")
+func Day01() {
+	fmt.Printf("\nDay 01: \n")
+	stringData := goutil.ReadFile("../../input/day01.txt")
 	_ = stringData
 
-	partOneAns := 0
+	partOneAns := ""
 	fmt.Printf("Part 1: %d\n", partOneAns)
 
-	partTwoAns := 0
+	partTwoAns := ""
 	fmt.Printf("Part 2: %d\n", partTwoAns)
 }
