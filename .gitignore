@@ -2,8 +2,12 @@
 *
 !/**/
 !*.*
+# except for Makefile
+!Makefile
 
 **/.idea/*
 **/.DS_Store
 
 **/*.beam
+
+build/

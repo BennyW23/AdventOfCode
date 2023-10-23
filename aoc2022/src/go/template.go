@@ -8,12 +8,12 @@ import (
 
 func DayXX() {
 	fmt.Printf("\nDay XX: \n")
-	stringData := goutil.ReadFile("../../input/dayXX.txt")
+	stringData := goutil.ReadFile("./aoc2022/input/dayXX.txt")
 	_ = stringData
 
-	partOneAns := 0
-	fmt.Printf("Part 1: %d\n", partOneAns)
+	partOneAns := ""
+	fmt.Printf("Part 1: %v\n", partOneAns)
 
-	partTwoAns := 0
-	fmt.Printf("Part 2: %d\n", partTwoAns)
+	partTwoAns := ""
+	fmt.Printf("Part 2: %v\n", partTwoAns)
 }

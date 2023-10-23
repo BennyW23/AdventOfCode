@@ -1,10 +1,11 @@
 package main
 
 import (
-	"goutil"
 	"fmt"
 	"strconv"
 	"strings"
+
+	"goutil"
 )
 
 func Day4() {
