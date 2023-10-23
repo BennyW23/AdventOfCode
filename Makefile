@@ -9,5 +9,5 @@ clean:
 	./build/$@_go
 
 2022: 
-	go build -o build/$@_go ./aoc2022/src/go
+	go build -o build/$@_go ./aoc2022/go
 	./build/$@_go
