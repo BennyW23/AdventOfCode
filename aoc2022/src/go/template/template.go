@@ -1,4 +1,4 @@
-package main
+package dayXX
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"goutil"
 )
 
-func DayXX() {
+func Solve() {
 	fmt.Printf("\nDay XX: \n")
 	stringData := goutil.ReadFile("./aoc2022/input/dayXX.txt")
 	_ = stringData

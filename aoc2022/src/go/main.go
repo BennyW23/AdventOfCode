@@ -1,5 +1,11 @@
 package main
 
+import (
+	"2022/day01"
+	"2022/day02"
+)
+
 func main() {
-	Day01()
+	day01.Solve()
+	day02.Solve()
 }
