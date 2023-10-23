@@ -1,14 +1,15 @@
 package main
 
 import (
-	"2021/util"
 	"fmt"
 	"strconv"
+
+	"goutil"
 )
 
 func Day1() {
 	fmt.Printf("\nDay 1: \n")
-	stringData := util.ReadInput("./day01.txt")
+	stringData := goutil.ReadFile("./day01.txt")
 
 	// make slice of ints
 	intData := make([]int64, len(stringData))

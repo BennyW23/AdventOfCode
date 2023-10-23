@@ -1,7 +1,7 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 	"strconv"
 	"strings"
@@ -18,7 +18,7 @@ type Snailfish struct {
 
 func Day18() {
 	fmt.Printf("\nDay 18: \n")
-	stringData := util.ReadInput("./day18_input.txt")
+	stringData := goutil.ReadFile("./day18_input.txt")
 
 	var resultFish *Snailfish = nil
 	for _, line := range stringData {

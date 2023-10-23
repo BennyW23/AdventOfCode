@@ -1,7 +1,7 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 )
 
@@ -12,7 +12,7 @@ type IntPoint struct {
 
 func Day9() {
 	fmt.Printf("\nDay 9: \n")
-	stringData := util.ReadInput("./day09_input.txt")
+	stringData := goutil.ReadFile("./day09_input.txt")
 
 	heights := make([][]int, 0)
 	for _, str := range stringData {

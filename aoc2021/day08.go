@@ -1,7 +1,7 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 	"strconv"
 	"strings"
@@ -9,7 +9,7 @@ import (
 
 func Day8() {
 	fmt.Printf("\nDay 8: \n")
-	stringData := util.ReadInput("./day08_input.txt")
+	stringData := goutil.ReadFile("./day08_input.txt")
 
 	counter := 0
 	for _, line := range stringData {

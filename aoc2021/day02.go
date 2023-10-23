@@ -1,15 +1,16 @@
 package main
 
 import (
-	"2021/util"
 	"fmt"
 	"strconv"
 	"strings"
+
+	"goutil"
 )
 
 func Day2() {
 	fmt.Printf("\nDay 2: \n")
-	stringData := util.ReadInput("./day02.txt")
+	stringData := goutil.ReadFile("./day02.txt")
 
 	xPos, yPos := int64(0), int64(0)
 	for _, command := range stringData {

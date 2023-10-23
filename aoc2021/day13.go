@@ -1,7 +1,7 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 	"math"
 	"strconv"
@@ -20,7 +20,7 @@ type FoldDay13 struct {
 
 func Day13() {
 	fmt.Printf("\nDay 13: \n")
-	stringData := util.ReadInput("./day13_input.txt")
+	stringData := goutil.ReadFile("./day13_input.txt")
 
 	points := make(map[PointDay13]bool)
 	folds := make([]FoldDay13, 0)

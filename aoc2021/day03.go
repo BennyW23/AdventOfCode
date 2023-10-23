@@ -1,15 +1,16 @@
 package main
 
 import (
-	"2021/util"
 	"fmt"
 	"strconv"
 	"strings"
+
+	"goutil"
 )
 
 func Day3() {
 	fmt.Printf("\nDay 3: \n")
-	stringData := util.ReadInput("./day03.txt")
+	stringData := goutil.ReadFile("./day03.txt")
 
 	var frequencies = countAllFrequencies(stringData)
 

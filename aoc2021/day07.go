@@ -1,7 +1,7 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 	"math"
 	"math/rand"
@@ -11,7 +11,7 @@ import (
 
 func Day7() {
 	fmt.Printf("\nDay 7: \n")
-	stringData := util.ReadInput("./day07.txt")
+	stringData := goutil.ReadFile("./day07.txt")
 
 	initialCrabs := make([]int, 0)
 	for _, crabString := range strings.Split(stringData[0], ",") {

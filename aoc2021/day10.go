@@ -1,14 +1,14 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 	"math/rand"
 )
 
 func Day10() {
 	fmt.Printf("\nDay 10: \n")
-	stringData := util.ReadInput("./day10_input.txt")
+	stringData := goutil.ReadFile("./day10_input.txt")
 
 	expectedLetter := map[rune]rune{
 		'(': ')',

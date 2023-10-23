@@ -1,14 +1,14 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 	"strings"
 )
 
 func Day12() {
 	fmt.Printf("\nDay 12: \n")
-	stringData := util.ReadInput("./day12_input.txt")
+	stringData := goutil.ReadFile("./day12_input.txt")
 
 	neighbors := make(map[string][]string)
 	for _, line := range stringData {

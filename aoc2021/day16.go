@@ -1,14 +1,14 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 	"strings"
 )
 
 func Day16() {
 	fmt.Printf("\nDay 16: \n")
-	stringData := util.ReadInput("./day16_input.txt")[0]
+	stringData := goutil.ReadFile("./day16_input.txt")[0]
 
 	var builder strings.Builder
 	for _, runeVal := range stringData {

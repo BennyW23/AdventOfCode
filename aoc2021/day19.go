@@ -1,7 +1,7 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 	"strconv"
 	"strings"
@@ -9,7 +9,7 @@ import (
 
 func Day19() {
 	fmt.Printf("\nDay 19: \n")
-	stringData := util.ReadInput("./day19_example.txt")
+	stringData := goutil.ReadFile("./day19_example.txt")
 
 	scannerData := make([][][3]int, 0)
 

@@ -1,13 +1,13 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 )
 
 func Day11() {
 	fmt.Printf("\nDay 11: \n")
-	stringData := util.ReadInput("./day11_input.txt")
+	stringData := goutil.ReadFile("./day11_input.txt")
 
 	octopi := [10][10]int{}
 	for row, data := range stringData {

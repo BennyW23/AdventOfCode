@@ -1,7 +1,7 @@
 package main
 
 import (
-	"2021/util"
+	"goutil"
 	"fmt"
 	"math"
 	"strings"
@@ -9,7 +9,7 @@ import (
 
 func Day14() {
 	fmt.Printf("\nDay 14: \n")
-	stringData := util.ReadInput("./day14_input.txt")
+	stringData := goutil.ReadFile("./day14_input.txt")
 
 	pairs := make(map[string]string)
 	polymer := []rune(stringData[0])
