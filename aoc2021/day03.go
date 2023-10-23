@@ -10,7 +10,7 @@ import (
 
 func Day3() {
 	fmt.Printf("\nDay 3: \n")
-	stringData := goutil.ReadFile("./day03.txt")
+	stringData := goutil.ReadFile("./aoc2021/day03.txt")
 
 	var frequencies = countAllFrequencies(stringData)
 

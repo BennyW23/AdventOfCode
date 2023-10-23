@@ -8,7 +8,7 @@ import (
 
 func Day10() {
 	fmt.Printf("\nDay 10: \n")
-	stringData := goutil.ReadFile("./day10_input.txt")
+	stringData := goutil.ReadFile("./aoc2021/day10_input.txt")
 
 	expectedLetter := map[rune]rune{
 		'(': ')',

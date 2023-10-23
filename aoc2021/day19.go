@@ -9,7 +9,7 @@ import (
 
 func Day19() {
 	fmt.Printf("\nDay 19: \n")
-	stringData := goutil.ReadFile("./day19_example.txt")
+	stringData := goutil.ReadFile("./aoc2021/day19_example.txt")
 
 	scannerData := make([][][3]int, 0)
 

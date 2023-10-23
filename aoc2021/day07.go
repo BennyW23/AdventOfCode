@@ -11,7 +11,7 @@ import (
 
 func Day7() {
 	fmt.Printf("\nDay 7: \n")
-	stringData := goutil.ReadFile("./day07.txt")
+	stringData := goutil.ReadFile("./aoc2021/day07.txt")
 
 	initialCrabs := make([]int, 0)
 	for _, crabString := range strings.Split(stringData[0], ",") {

@@ -8,7 +8,7 @@ import (
 
 func Day16() {
 	fmt.Printf("\nDay 16: \n")
-	stringData := goutil.ReadFile("./day16_input.txt")[0]
+	stringData := goutil.ReadFile("./aoc2021/day16_input.txt")[0]
 
 	var builder strings.Builder
 	for _, runeVal := range stringData {

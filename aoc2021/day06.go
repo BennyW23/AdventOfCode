@@ -10,7 +10,7 @@ import (
 
 func Day6() {
 	fmt.Printf("\nDay 6: \n")
-	stringData := goutil.ReadFile("./day06.txt")
+	stringData := goutil.ReadFile("./aoc2021/day06.txt")
 	initialFish := strings.Split(stringData[0], ",")
 	numDaysPart1 := 80
 	numDaysPart2 := 256

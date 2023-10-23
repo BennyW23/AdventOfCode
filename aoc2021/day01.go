@@ -9,7 +9,7 @@ import (
 
 func Day1() {
 	fmt.Printf("\nDay 1: \n")
-	stringData := goutil.ReadFile("./day01.txt")
+	stringData := goutil.ReadFile("./aoc2021/day01.txt")
 
 	// make slice of ints
 	intData := make([]int64, len(stringData))

@@ -10,7 +10,7 @@ import (
 
 func Day17() {
 	fmt.Printf("\nDay 17: \n")
-	stringData := goutil.ReadFile("./day17_input.txt")[0]
+	stringData := goutil.ReadFile("./aoc2021/day17_input.txt")[0]
 
 	pieces := strings.Split(stringData, " ")
 	xValues := strings.Split(pieces[2][2:len(pieces[2])-1], "..")

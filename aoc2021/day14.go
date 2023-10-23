@@ -9,7 +9,7 @@ import (
 
 func Day14() {
 	fmt.Printf("\nDay 14: \n")
-	stringData := goutil.ReadFile("./day14_input.txt")
+	stringData := goutil.ReadFile("./aoc2021/day14_input.txt")
 
 	pairs := make(map[string]string)
 	polymer := []rune(stringData[0])

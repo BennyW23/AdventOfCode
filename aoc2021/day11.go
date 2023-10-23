@@ -7,7 +7,7 @@ import (
 
 func Day11() {
 	fmt.Printf("\nDay 11: \n")
-	stringData := goutil.ReadFile("./day11_input.txt")
+	stringData := goutil.ReadFile("./aoc2021/day11_input.txt")
 
 	octopi := [10][10]int{}
 	for row, data := range stringData {

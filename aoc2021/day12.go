@@ -8,7 +8,7 @@ import (
 
 func Day12() {
 	fmt.Printf("\nDay 12: \n")
-	stringData := goutil.ReadFile("./day12_input.txt")
+	stringData := goutil.ReadFile("./aoc2021/day12_input.txt")
 
 	neighbors := make(map[string][]string)
 	for _, line := range stringData {

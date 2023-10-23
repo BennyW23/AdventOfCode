@@ -15,7 +15,7 @@ type Int64Point struct {
 
 func Day5() {
 	fmt.Printf("\nDay 5: \n")
-	stringData := goutil.ReadFile("./day05.txt")
+	stringData := goutil.ReadFile("./aoc2021/day05.txt")
 
 	counter := make(map[Int64Point]int)
 	diagonalCounter := make(map[Int64Point]int)

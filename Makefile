@@ -1,5 +1,13 @@
-.PHONY: 2022
+.PHONY: clean 2021 2022
 
-2022:
-	go build -o build/2022_go ./aoc2022/src/go
-	./build/2022_go
+clean:
+	rm -f ./build/*
+
+
+2021:
+	go build -o build/$@_go ./aoc2021
+	./build/$@_go
+
+2022: 
+	go build -o build/$@_go ./aoc2022/src/go
+	./build/$@_go
