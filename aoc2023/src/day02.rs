@@ -90,7 +90,7 @@ fn power(game: &str) -> i32 {
                 .unwrap();
             let color = action_parts.get(2).unwrap().as_str();
 
-            let ok = match color {
+            let _ok = match color {
                 "red" => red = cmp::max(red, amount),
                 "green" => green = cmp::max(green, amount),
                 _ => blue = cmp::max(blue, amount),

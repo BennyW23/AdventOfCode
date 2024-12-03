@@ -10,6 +10,6 @@ pub fn day02() {
     println!("Part 2: {:?}", part2(&contents));
 }
 
-fn part1(contents: &str) {}
+fn part1(_contents: &str) {}
 
-fn part2(contents: &str) {}
+fn part2(_contents: &str) {}
