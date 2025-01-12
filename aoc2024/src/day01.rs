@@ -9,6 +9,7 @@ pub fn day01() {
 
     println!("Part 1: {}", part1(&contents));
     println!("Part 2: {}", part2(&contents));
+    println!();
 }
 
 fn part1(contents: &String) -> u32 {

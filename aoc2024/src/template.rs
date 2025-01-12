@@ -8,6 +8,7 @@ pub fn dayXX() {
 
     println!("Part 1: {:?}", part1(&contents));
     println!("Part 2: {:?}", part2(&contents));
+    println!();
 }
 
 fn part1(contents: &str) {}
