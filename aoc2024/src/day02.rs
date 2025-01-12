@@ -87,8 +87,8 @@ fn is_record_safe_part2(line: &str) -> bool {
     false
 }
 
-fn get_values_without_index(values: &Vec<i32>, index: usize) -> Vec<i32> {
-    let mut copy: Vec<i32> = values.clone();
+fn get_values_without_index(values: &[i32], index: usize) -> Vec<i32> {
+    let mut copy: Vec<i32> = values.to_owned();
     copy.remove(index);
     copy
 }

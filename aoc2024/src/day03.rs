@@ -24,7 +24,7 @@ fn part1(contents: &str) -> i32 {
         sum += first.parse::<i32>().unwrap() * second.parse::<i32>().unwrap();
     }
 
-    return sum;
+    sum
 }
 
 fn part2(contents: &str) -> i32 {
@@ -35,11 +35,11 @@ fn part2(contents: &str) -> i32 {
     let mut enabled = true;
     let mut sum = 0;
     for captures in re.captures_iter(contents) {
-        if captures.get(1) != None {
+        if captures.get(1).is_some() {
             enabled = true;
-        } else if captures.get(2) != None {
+        } else if captures.get(2).is_some() {
             enabled = false;
-        } else if captures.get(3) != None {
+        } else if captures.get(3).is_some() {
             if enabled {
                 let first = captures.get(4).unwrap().as_str().parse::<i32>().unwrap();
                 let second = captures.get(5).unwrap().as_str().parse::<i32>().unwrap();
@@ -50,5 +50,5 @@ fn part2(contents: &str) -> i32 {
         }
     }
 
-    return sum;
+    sum
 }

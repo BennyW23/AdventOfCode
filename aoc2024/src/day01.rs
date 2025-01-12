@@ -12,7 +12,7 @@ pub fn day01() {
     println!();
 }
 
-fn part1(contents: &String) -> u32 {
+fn part1(contents: &str) -> u32 {
     let mut left_vals: Vec<u32> = Vec::new();
     let mut right_vals: Vec<u32> = Vec::new();
     for line in contents.split('\n') {
@@ -36,7 +36,7 @@ fn part1(contents: &String) -> u32 {
     total_dist
 }
 
-fn part2(contents: &String) -> u32 {
+fn part2(contents: &str) -> u32 {
     let mut left_vals: Vec<u32> = Vec::new();
     let mut right_frequency: HashMap<u32, u32> = HashMap::new();
     for line in contents.split('\n') {
